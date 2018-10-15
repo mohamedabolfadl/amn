@@ -1,0 +1,63 @@
+
+
+
+
+$ESSID = dum
+$CAPFILE = dum.cap
+
+#-- Importing wordlist
+pyrit -i /usr/share/wordlists/rockyou.txt import_passwords
+
+#-- Creating an essid
+pyrit -e $ESSID create_essid
+
+
+#################################
+#################################
+###########   PYRIT    ##########
+#################################
+#################################
+
+
+#-- Create a batch
+pyrit batch
+
+#-- Crack
+pyrit -r $CAPFILE attack_db
+
+
+#################################
+#################################
+#########   COWPATTY    #########
+#################################
+#################################
+
+#-- Export cowpatty format
+pyrit -e $ESSID -o cow.out export_cowpatty
+
+#-- Crack
+cowpatty -d cow.out -s $ESSID -r $CAPFILE
+
+
+#-- Clean pyrit
+
+#-- Remove ESSID
+pyrit $ESSID delete_essid
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
